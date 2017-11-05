@@ -1,0 +1,12 @@
+<div *ngIf="env">
+  <h2>{{env.host}} details!</h2>
+  <div>
+    <label>id: </label>{{env.id}}
+  </div>
+  <div>
+    <label>Host: </label>
+    <input [(ngModel)]="env.host" placeholder="host">
+  </div>
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
+</div>

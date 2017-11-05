@@ -1,0 +1,23 @@
+<h2>My Environments</h2>
+<div>
+  <label>Hero name:</label> <input #heroName />
+  <button (click)="add(heroName.value); heroName.value=''">
+    Add
+  </button>
+</div>
+<ul class="envs">
+  <li *ngFor="let env of envs"
+      (click)="onSelect (env)"
+      [class.selected]="env === selectedEnv">
+    <span class="badge">{{env.id}}</span>
+    <span>{{env.host}}</span>
+    <button class="delete"
+            (click)="delete(env); $event.stopPropagation()">x</button>
+  </li>
+</ul>
+<div *ngIf="selectedEnv">
+  <h2>
+    {{selectedEnv.host | uppercase}} is my host
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>

@@ -1,0 +1,10 @@
+<div id="search-component">
+  <h4>Environment Search</h4>
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <div>
+    <div *ngFor="let env of envs | async"
+         (click)="gotoDetail(env)" class="search-result" >
+      {{env.host}}
+    </div>
+  </div>
+</div>

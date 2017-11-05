@@ -1,0 +1,11 @@
+<h3>Current Development & PT Environments</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let env of envs"  [routerLink]="['/detail', env.id]"  class="col-1-4">
+    <div class="module hero">
+      <h4>{{env.host}}</h4>
+    </div>
+  </a>
+</div>
+
+<env-search></env-search>
+
