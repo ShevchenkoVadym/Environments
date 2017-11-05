@@ -3,21 +3,91 @@ import { Component, OnInit } from '@angular/core';
 import { Environment } from './environment';
 import { EnvService } from './env.service';
 
-
 @Component({
-  selector: 'my-dashboard',
+  selector: 'my-filtered-envs',
   templateUrl: './dashboard.component.html',
   styleUrls: [ './dashboard.component.css' ]
 })
 
-export class DashboardComponent implements OnInit {
+export abstract class DashboardComponent implements OnInit {
 
   envs: Environment[] = [];
+  selectedEnv: Environment;
 
-  constructor(private envService: EnvService) { }
+  constructor(public envService: EnvService) { }
 
   ngOnInit(): void {
+    console.log(this.getType());
     this.envService.getEnvs()
-      .then(envs => this.envs = envs.slice(1, 5));
+      .then(envs => this.envs = envs.filter(env => env.type === this.getType()));
+  }
+
+  delete(env: Environment): void {
+    this.envService
+      .delete(env.id)
+      .then(() => {
+        this.envs = this.envs.filter(e => e !== env);
+        if (this.selectedEnv === env) { this.selectedEnv = null; }
+      });
+  }
+
+  abstract getType(): string;
+  abstract getTitle(): string;
+}
+
+export class CurrentEnvComponent extends DashboardComponent implements OnInit {
+
+  getType(): string {
+    return 'current_development_env';
+  }
+
+  getTitle(): string {
+    return 'Current Development & PT Environments';
   }
 }
+
+export class PreviousEnvComponent extends DashboardComponent implements OnInit {
+
+  getType(): string {
+    return 'previous_release_environments';
+  }
+
+  getTitle(): string {
+    return 'Previous Release Environments';
+  }
+}
+
+export class OpenEnvComponent extends DashboardComponent implements OnInit {
+
+  getType(): string {
+    return 'open_releases';
+  }
+
+  getTitle(): string {
+    return 'Open Releases';
+  }
+}
+
+export class GAEnvComponent extends DashboardComponent implements OnInit {
+
+  getType(): string {
+    return 'ga_releases';
+  }
+
+  getTitle(): string {
+    return 'GA\'ed Releases';
+  }
+}
+
+export class RetiredEnvComponent extends DashboardComponent implements OnInit {
+
+  getType(): string {
+    return 'servers_to_be_retired';
+  }
+
+  getTitle(): string {
+    return 'Servers to be Retired';
+  }
+}
+
+

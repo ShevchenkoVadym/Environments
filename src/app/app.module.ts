@@ -8,7 +8,11 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
 import { AppComponent }         from './app.component';
-import { DashboardComponent }   from './dashboard.component';
+import { CurrentEnvComponent } from './dashboard.component';
+import { PreviousEnvComponent } from './dashboard.component';
+import { OpenEnvComponent } from './dashboard.component';
+import { GAEnvComponent } from './dashboard.component';
+import { RetiredEnvComponent } from './dashboard.component';
 import { EnvDetailComponent }  from './env-detail.component';
 import { EnvsComponent }      from './envs.component';
 import { EnvService }          from './env.service';
@@ -22,14 +26,19 @@ import { EnvSearchComponent } from './env-search.component';
     FormsModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
-    AppRoutingModule
+    AppRoutingModule,
+
   ],
   declarations: [
     AppComponent,
-    DashboardComponent,
     EnvDetailComponent,
     EnvsComponent,
     EnvSearchComponent,
+    CurrentEnvComponent,
+    PreviousEnvComponent,
+    OpenEnvComponent,
+    GAEnvComponent,
+    RetiredEnvComponent,
   ],
   providers: [ EnvService ],
   bootstrap: [ AppComponent ]

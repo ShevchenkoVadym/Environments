@@ -7,7 +7,7 @@
 </div>
 <ul class="envs">
   <li *ngFor="let env of envs"
-      (click)="onSelect (env)"
+      [routerLink]="['/detail', env.id]"
       [class.selected]="env === selectedEnv">
     <span class="badge">{{env.id}}</span>
     <span>{{env.host}}</span>
