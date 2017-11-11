@@ -5,8 +5,6 @@ import 'rxjs/add/operator/toPromise';
 
 import { Environment } from './environment';
 
-
-
 @Injectable()
 export class EnvService {
   private envsUrl = 'api/envs';  // URL to web api

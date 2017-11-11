@@ -8,7 +8,7 @@ import { EnvService } from './env.service';
   selector: 'my-envs',
   templateUrl: './envs.component.html',
   styleUrls: [ './envs.component.css' ],
-  providers: [EnvService]
+  providers: [ EnvService ]
 })
 
 export class EnvsComponent implements OnInit {

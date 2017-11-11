@@ -3,7 +3,6 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'my-app',
   template: `
-    <h1>{{title}}</h1>
     <nav>
       <a routerLink="/current-development-environments">Current Development</a>
       <a routerLink="/previous-release-environments">Previous Release Environments</a>
@@ -13,10 +12,11 @@ import {Component} from '@angular/core';
       <a routerLink="/all-environments">All Environments</a>
     </nav>
     <router-outlet></router-outlet>
+
+ 
   `,
   styleUrls: ['./app.component.css'],
 })
 
 export class AppComponent  {
-  title = 'Environments';
 }

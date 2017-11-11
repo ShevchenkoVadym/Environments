@@ -8,6 +8,22 @@
   padding: 0;
   width: 15em;
 }
+.table > tbody > tr > td {
+  vertical-align: middle;
+  text-align: center;
+
+}
+
+.table > thead > tr > th {
+  vertical-align: middle;
+  text-align: center;
+
+}
+
+.table {
+  font-size: 75%;
+}
+
 .envs li {
   cursor: pointer;
   position: relative;
@@ -46,10 +62,15 @@
   border-radius: 4px 0 0 4px;
 }
 
-button.delete {
-  float:right;
-  margin-top: 2px;
-  margin-right: .8em;
-  background-color: gray !important;
-  color:white;
+.btn {
+  font-size: 85%;
 }
+
+.hover_row:hover{
+  background-color: #bddef9;
+}
+
+/*#env-table {
+  margin: 20px !important;
+  padding: 20px !important;
+}*/

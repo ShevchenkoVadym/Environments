@@ -17,7 +17,6 @@ export abstract class DashboardComponent implements OnInit {
   constructor(public envService: EnvService) { }
 
   ngOnInit(): void {
-    console.log(this.getType());
     this.envService.getEnvs()
       .then(envs => this.envs = envs.filter(env => env.type === this.getType()));
   }

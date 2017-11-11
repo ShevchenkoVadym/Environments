@@ -1,7 +1,7 @@
 <h2>My Environments</h2>
 <div>
-  <label>Hero name:</label> <input #heroName />
-  <button (click)="add(heroName.value); heroName.value=''">
+  <label>Environment name:</label> <input #hostName />
+  <button (click)="add(hostName.value); hostName.value=''">
     Add
   </button>
 </div>
@@ -10,14 +10,14 @@
       [routerLink]="['/detail', env.id]"
       [class.selected]="env === selectedEnv">
     <span class="badge">{{env.id}}</span>
-    <span>{{env.host}}</span>
+    <span>{{env.nodes[1].host}}</span>
     <button class="delete"
             (click)="delete(env); $event.stopPropagation()">x</button>
   </li>
 </ul>
 <div *ngIf="selectedEnv">
   <h2>
-    {{selectedEnv.host | uppercase}} is my host
+    {{selectedEnv.nodes[1].host | uppercase}} is my host
   </h2>
   <button (click)="gotoDetail()">View Details</button>
 </div>
