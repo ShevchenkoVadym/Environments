@@ -1,4 +1,98 @@
-<h2>My Environments</h2>
+<h3 style="text-align:center">{{title}}</h3>
+
+<table class="table table-bordered">
+  <thead class="thead-light">
+  <tr>
+    <th>id</th>
+    <th>EEA-SQM</th>
+    <th>iSecure</th>
+    <th>Host</th>
+    <th>Host Type</th>
+    <th>DEV/PT</th>
+    <th>Model</th>
+    <th>Hardware</th>
+    <th>OS</th>
+    <th>Oracle</th>
+    <th>iSecure</th>
+    <th>SQM</th>
+    <th>Svc Mgmt</th>
+    <th>EEA-SQM GUI</th>
+    <th>Database</th>
+    <th>UTF8</th>
+    <th>Last Update</th>
+    <th>Owner</th>
+    <th>Comments</th>
+    <th>Action1</th>
+    <th>Action2</th>
+  </tr>
+  </thead>
+  <tbody *ngFor="let env of envs" [class.selected]="env === selectedEnv" class="hover_row">
+  <tr>
+    <td [attr.rowspan]="env.nodes.length">{{env.id}}</td>
+    <td [attr.rowspan]="env.nodes.length">{{env.eea_sqm_version}}</td>
+    <td [attr.rowspan]="env.nodes.length">{{env.iSecure}}</td>
+    <td rowspan="1">
+      {{env.nodes[0].host}}
+    </td>
+    <td rowspan="1">
+      {{env.nodes[0].host_type}}
+    </td>
+    <td [attr.rowspan]="env.nodes.length">{{env.dev_pt}}</td>
+    <td rowspan="1">
+      {{env.nodes[0].hardware_name}}
+    </td>
+    <td rowspan="1">
+      CPU: {{env.nodes[0].hardware_cpu}}
+      RAM: {{env.nodes[0].hardware_ram}}
+    </td>
+    <td rowspan="1">
+      {{env.nodes[0].os}}
+    </td>
+    <td rowspan="1">
+      {{env.nodes[0].oracle_version}}
+    </td>
+    <td [attr.rowspan]="env.nodes.length">
+      <a class="btn btn-info" role="button" [attr.href]="env.iSecure_link" target="_blank">iSecure</a>
+    <td [attr.rowspan]="env.nodes.length">
+      <a class="btn btn-info" role="button" [attr.href]="env.sqm_rich_link" target="_blank">SQM</a>
+    </td>
+    <td [attr.rowspan]="env.nodes.length">
+      <a class="btn btn-info" role="button" [attr.href]="env.sqm_thin_link" target="_blank">Svc Mgmt</a>
+    </td>
+    <td [attr.rowspan]="env.nodes.length">
+      <a class="btn btn-info" role="button" [attr.href]="env.eea_sqm_gui_link" target="_blank">EEA SQM</a>
+    </td>
+    <td rowspan="1">
+      {{env.nodes[0].database_names}}
+    </td>
+    <td [attr.rowspan]="env.nodes.length">{{env.utf8}}</td>
+    <td [attr.rowspan]="env.nodes.length">{{env.last_update}}</td>
+    <td [attr.rowspan]="env.nodes.length">{{env.owner}}</td>
+    <td [attr.rowspan]="env.nodes.length">{{env.comments}}</td>
+    <td [attr.rowspan]="env.nodes.length" >
+      <button type="button" class="btn btn-warning" [routerLink]="['/detail', env.id]">EDIT</button>
+    </td>
+    <td [attr.rowspan]="env.nodes.length" >
+      <button type="button" class="btn btn-danger" (click)="delete(env); $event.stopPropagation()">DELETE</button>
+    </td>
+  </tr>
+  <tr *ngFor="let node of env.nodes | slice:1">
+    <td rowspan="1">{{node.host}}</td>
+    <td rowspan="1">{{node.host_type}}</td>
+    <td rowspan="1">{{node.hardware_name}}</td>
+    <td rowspan="1">
+      CPU: {{node.hardware_cpu}}
+      RAM: {{node.hardware_ram}}
+    </td>
+    <td rowspan="1">{{node.os}}</td>
+    <td rowspan="1">{{node.oracle_version}}</td>
+    <td rowspan="1">{{node.database_names}}</td>
+  </tr>
+  </tbody>
+</table>
+
+
+
 <div>
   <label>Environment name:</label> <input #hostName />
   <button (click)="add(hostName.value); hostName.value=''">

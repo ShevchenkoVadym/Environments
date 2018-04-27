@@ -5,6 +5,8 @@ export class InMemoryDataService implements InMemoryDbService {
     const envs = [
       { id: 0,
         type: 'current_development_env',
+        eea_sqm_version: '17.2',
+        iSecure: 17.0,
         nodes: [{
           id: 101,
           host: 'gamma',
@@ -26,8 +28,6 @@ export class InMemoryDataService implements InMemoryDbService {
           oracle_version: '12.1.0.2 Enterprise',
           database_names: 'sd'
         }],
-        eea_sqm_version: '17.2',
-        iSecure: 17.0,
         dev_pt: 'PT',
         iSecure_link: 'http://gamma.cc.telcordia.com:8102/ISECURE/',
         sqm_rich_link: 'http://gamms.cc.telcordia.com:8102/SD/',
@@ -40,6 +40,8 @@ export class InMemoryDataService implements InMemoryDbService {
       },
       { id: 1,
         type: 'current_development_env',
+        eea_sqm_version: '17.2',
+        iSecure: 17.0,
         nodes: [{
           id: 104,
           host: 'neva',
@@ -51,8 +53,6 @@ export class InMemoryDataService implements InMemoryDbService {
           oracle_version: '12.1.0.2 Enterprise',
           database_names: 'sd'
         }],
-        eea_sqm_version: '17.2',
-        iSecure: 17.0,
         dev_pt: 'Dev',
         iSecure_link: 'http://neva.cc.telcordia.com:8102/ISECURE/',
         sqm_rich_link: 'http://neva.cc.telcordia.com:8102/SD/',

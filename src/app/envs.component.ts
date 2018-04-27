@@ -7,11 +7,12 @@ import { EnvService } from './env.service';
 @Component({
   selector: 'my-envs',
   templateUrl: './envs.component.html',
-  styleUrls: [ './envs.component.css' ],
+  styleUrls: [ './envs.component.css', './dashboard.component.css'],
   providers: [ EnvService ]
 })
 
 export class EnvsComponent implements OnInit {
+  title = 'All environments';
   envs: Environment[];
   selectedEnv: Environment;
 

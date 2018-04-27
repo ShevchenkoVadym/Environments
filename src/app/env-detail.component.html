@@ -1,11 +1,67 @@
 <div *ngIf="env">
-  <h2>{{env.host}} details!</h2>
+    <div class="col-8 form-container">
+      <h2 style="text-align:center">Edit page</h2>
+      <form>
+        <div class="form-row">
+          <div class="col" >
+            <label for="eea-sqm" >EEA-SQM</label>
+            <input placeholder="version" id="eea-sqm" class="form-control" [(ngModel)]="env.eea_sqm_version" name="sqm-version">
+          </div>
+          <div class="col">
+            <label for="iSecure">iSecure</label>
+            <input placeholder="version" id="iSecure" class="form-control" [(ngModel)]="env.iSecure" name="isecure-version">
+          </div>
+        </div>
+
+        <div *ngFor="let node of env.nodes; let idx = index" class="node-container">
+          <h4>Hostname of Node: {{node.host}}</h4>
+          <div class="form-row">
+            <div class="col" >
+              <label [attr.for]="node.host">Host</label>
+              <input placeholder="Host name" [attr.id]="node.host" class="form-control" [(ngModel)]="node.host" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="col">
+              <label [attr.for]="node.host-type">Host Type</label>
+              <input placeholder="Host Type" [attr.id]="node.host-type" class="form-control" [(ngModel)]="node.host_type" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+        </div>
+
+        <button (click)="showAddNodeAction()" [hidden]="showAddNode">+</button>
+        <div [hidden]="!showAddNode">
+          <div class="form-row">
+            <div class="col" >
+              <label for="newhost">Host</label>
+              <input placeholder="hostname" id="newhost" class="form-control" [(ngModel)]="newhost" [ngModelOptions]="{standalone: true}" required minlength="4">
+            </div>
+
+
+
+
+
+            <div class="col">
+              <label for="newhosttype">Host Type</label>
+              <input placeholder="version" id="newhosttype" class="form-control" [(ngModel)]="newhosttype" [ngModelOptions]="{standalone: true}" required minlength="4">
+            </div>
+            <button (click)="addNewNode()">Add node</button>
+          </div>
+        </div>
+
+
+        <button class="btn btn-primary" (click)="goBack()">Back</button>
+        <button type="submit" class="btn btn-primary" (click)="save()">Save</button>
+      </form>
+    </div>
+
+
+
+  <h2>{{env.nodes[0].host}} details!</h2>
   <div>
     <label>id: </label>{{env.id}}
   </div>
   <div>
     <label>Host: </label>
-    <input [(ngModel)]="env.host" placeholder="host">
+    <input [(ngModel)]="env.nodes[0].host" placeholder="host">
   </div>
   <button (click)="goBack()">Back</button>
   <button (click)="save()">Save</button>

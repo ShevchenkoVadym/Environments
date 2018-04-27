@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'ga-releases',  component: GAEnvComponent },
   { path: 'servers-to-be-retired',  component: RetiredEnvComponent },
   { path: 'detail/:id', component: EnvDetailComponent },
+  { path: 'add/', component: EnvDetailComponent },
   { path: 'all-environments',     component: EnvsComponent }
 ];
 

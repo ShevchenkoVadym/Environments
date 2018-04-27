@@ -15,6 +15,7 @@ import { EnvService } from './env.service';
 
 export class EnvDetailComponent implements OnInit  {
   env: Environment;
+  showAddNode: boolean;
   constructor(
     private envService: EnvService,
     private route: ActivatedRoute,
@@ -22,6 +23,7 @@ export class EnvDetailComponent implements OnInit  {
   ) {}
 
   ngOnInit(): void {
+    this.showAddNode = false;
     this.route.paramMap
       .switchMap((params: ParamMap) => this.envService.getEnv(+params.get('id')))
       .subscribe(env => this.env = env);
@@ -36,5 +38,23 @@ export class EnvDetailComponent implements OnInit  {
       .then(() => this.goBack());
   }
 
+  addNewNode() {
+    this.env.nodes.push({id: 1014,
+      host: 'test',
+      host_type: 'test',
+      hardware_name: 'test',
+      hardware_cpu: 2,
+      hardware_ram: 2,
+      os: 'test',
+      oracle_version: 'test',
+      database_names: 'test' });
+    this.envService.update(this.env);
+    this.showAddNode = false;
+  }
+
+
+  showAddNodeAction() {
+    this.showAddNode = true;
+  }
 }
 

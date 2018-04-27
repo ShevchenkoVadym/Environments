@@ -1,14 +1,16 @@
 label {
-  display: inline-block;
-  width: 3em;
-  margin: .5em 0;
-  color: #607D8B;
-  font-weight: bold;
+  /*display: inline-block;*/
+  /*width: 3em;*/
+  /*margin: .5em 0;*/
+  /*color: #607D8B;*/
+  /*font-weight: bold;*/
+  padding-left: 0px;
+  margin: 0px;
 }
 input {
   height: 2em;
   font-size: 1em;
-  padding-left: .4em;
+  /**/
 }
 button {
   margin-top: 20px;
@@ -26,4 +28,16 @@ button:disabled {
   background-color: #eee;
   color: #ccc;
   cursor: auto;
+}
+
+.form-container {
+  border-radius: 25px;
+  border: 2px solid #607D8B;
+  padding: 20px;
+}
+
+.node-container {
+  border-left: 3px solid #009933;
+  padding: 20px;
+  margin: 10px;
 }
