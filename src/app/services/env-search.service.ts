@@ -4,7 +4,7 @@ import { Http }       from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import { Environment } from './environment';
+import { Environment } from '../dao/environment';
 
 @Injectable()
 export class EnvSearchService {

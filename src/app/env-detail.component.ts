@@ -3,14 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location }                 from '@angular/common';
 
-import { Environment } from './environment';
-import { EnvService } from './env.service';
+import { Environment } from './dao/environment';
+import { EnvService } from './services/env.service';
 
 
 @Component({
   selector: 'env-detail',
-  templateUrl: './env-detail.component.html',
-  styleUrls: [ './env-detail.component.css' ]
+  templateUrl: './templates/env-detail.component.html',
+  styleUrls: [ './styles/env-detail.component.css' ]
 })
 
 export class EnvDetailComponent implements OnInit  {

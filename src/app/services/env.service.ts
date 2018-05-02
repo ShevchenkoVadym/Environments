@@ -3,7 +3,7 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Environment } from './environment';
+import { Environment } from '../dao/environment';
 
 @Injectable()
 export class EnvService {

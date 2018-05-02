@@ -12,13 +12,13 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
-import { EnvSearchService } from './env-search.service';
-import { Environment } from './environment';
+import { EnvSearchService } from './services/env-search.service';
+import { Environment } from './dao/environment';
 
 @Component({
   selector: 'env-search',
-  templateUrl: './env-search.component.html',
-  styleUrls: [ './env-search.component.css' ],
+  templateUrl: './templates/env-search.component.html',
+  styleUrls: [ './styles/env-search.component.css' ],
   providers: [EnvSearchService]
 })
 export class EnvSearchComponent implements OnInit {

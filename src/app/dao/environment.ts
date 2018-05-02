@@ -1,6 +1,7 @@
 export class Environment {
   id: number;
   type: string;
+  build_number: number;
   nodes: Node[];
   eea_sqm_version: string;
   iSecure: number;

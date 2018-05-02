@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Environment } from './environment';
-import { EnvService } from './env.service';
+import { Environment } from './dao/environment';
+import { EnvService } from './services/env.service';
 
 @Component({
   selector: 'my-filtered-envs',
-  templateUrl: './dashboard.component.html',
-  styleUrls: [ './dashboard.component.css' ]
+  templateUrl: './templates/dashboard.component.html',
+  styleUrls: [ './styles/dashboard.component.css' ]
 })
 
 export abstract class DashboardComponent implements OnInit {

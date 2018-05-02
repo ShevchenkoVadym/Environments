@@ -6,6 +6,7 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 0,
         type: 'current_development_env',
         eea_sqm_version: '17.2',
+        build_number: 13,
         iSecure: 17.0,
         nodes: [{
           id: 101,
@@ -41,6 +42,7 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 1,
         type: 'current_development_env',
         eea_sqm_version: '17.2',
+        build_number: 13,
         iSecure: 17.0,
         nodes: [{
           id: 104,
@@ -65,6 +67,7 @@ export class InMemoryDataService implements InMemoryDbService {
       },
       { id: 2,
         type: 'current_development_env',
+        build_number: 13,
         nodes: [{
           id: 105,
           host: 'sdperf1',
@@ -98,6 +101,42 @@ export class InMemoryDataService implements InMemoryDbService {
         owner: 'Umesh',
         comments: 'Comcast Data',
       },
+      { id: 3,
+        type: 'open_releases',
+        build_number: 11,
+        nodes: [{
+          id: 109,
+          host: 'test',
+          host_type: 'Oracle',
+          hardware_name: 'Xeon Family 6 Model 26',
+          hardware_cpu: 24,
+          hardware_ram: 80,
+          os: 'Red Hat 6.3 (Santiago)',
+          oracle_version: '12.1.0.2 Enterprise',
+          database_names: 'sd & bo'
+        }, {
+          id: 110,
+          host: 'test2',
+          host_type: 'SQM Core',
+          hardware_name: 'Xeon Family 6 Model 26',
+          hardware_cpu: 6,
+          hardware_ram: 108,
+          os: 'Red Hat 7.3 (Santiago)',
+          oracle_version: 'N/A',
+          database_names: 'N/A'
+        }],
+        eea_sqm_version: '17.1',
+        iSecure: 17.0,
+        dev_pt: 'Automation',
+        iSecure_link: 'http://sdperf1.cc.telcordia.com:8102/ISECURE/',
+        sqm_rich_link: 'http://sdperf1.cc.telcordia.com:8102/SD/',
+        sqm_thin_link: 'https://sdperf1.cc.telcordia.com:8103/App.html',
+        eea_sqm_gui_link: '',
+        utf8: true,
+        last_update: '11/03/17',
+        owner: 'Umesh',
+        comments: 'Comcast Data',
+      }
     ];
     return {envs};
   }

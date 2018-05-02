@@ -5,6 +5,7 @@
   <tr>
     <th>id</th>
     <th>EEA-SQM</th>
+    <th>Build Number</th>
     <th>iSecure</th>
     <th>Host</th>
     <th>Host Type</th>
@@ -30,6 +31,7 @@
     <tr>
       <td [attr.rowspan]="env.nodes.length">{{env.id}}</td>
       <td [attr.rowspan]="env.nodes.length">{{env.eea_sqm_version}}</td>
+      <td [attr.rowspan]="env.nodes.length">{{env.build_number}}</td>
       <td [attr.rowspan]="env.nodes.length">{{env.iSecure}}</td>
       <td rowspan="1">
         {{env.nodes[0].host}}

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Environment } from './environment';
-import { EnvService } from './env.service';
+import { Environment } from './dao/environment';
+import { EnvService } from './services/env.service';
 
 @Component({
   selector: 'my-envs',
-  templateUrl: './envs.component.html',
-  styleUrls: [ './envs.component.css', './dashboard.component.css'],
+  templateUrl: './templates/envs.component.html',
+  styleUrls: [ './styles/envs.component.css', './styles/dashboard.component.css'],
   providers: [ EnvService ]
 })
 

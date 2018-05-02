@@ -15,7 +15,7 @@ import {Component} from '@angular/core';
 
  
   `,
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./styles/app.component.css'],
 })
 
 export class AppComponent  {
